@@ -71,9 +71,9 @@ const handleSubmit = async (event) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/contact",
-      form
-    );
+  `${import.meta.env.VITE_API_URL}/api/contact`,
+  form
+);
 
     // Axios resolves successful 2xx responses
     setStatus(
