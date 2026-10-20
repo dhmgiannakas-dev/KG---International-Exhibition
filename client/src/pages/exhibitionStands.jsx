@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import ExhibitionCard from "../components/ExhibitionCard";
 import { exhibitionStands } from "../data/exhibitionStands";
-import "./ExhibitionStands.css";
+import "./exhibitionStands.css";
 
 /** Exhibition stands archive with a searchable project grid. */
 export default function ExhibitionStands() {
