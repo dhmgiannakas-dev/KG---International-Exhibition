@@ -1,0 +1,339 @@
+
+/* =========================================
+   KG INTERNATIONAL — CLIENTS CAROUSEL
+   Desktop / Tablet / Mobile
+========================================= */
+
+/* =========================================
+   01. SECTION & VARIABLES
+========================================= */
+
+.kg-clients {
+  --clients-accent: #0c6d66;
+  --clients-text: #173b35;
+  --clients-muted: #667b75;
+  --clients-gap: 32px;
+  --clients-card-width: 210px;
+  --clients-duration: 55s;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  padding: 90px 0 100px;
+
+  background-color: #ffffff;
+  color: var(--clients-text);
+}
+
+/* =========================================
+   02. CONTAINER
+========================================= */
+
+.kg-clients__container {
+  width: min(100% - 48px, 1200px);
+  margin: 0 auto;
+}
+
+/* =========================================
+   03. SECTION HEADING
+========================================= */
+
+.kg-clients__heading {
+  max-width: 700px;
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.kg-clients__eyebrow {
+  display: block;
+  margin-bottom: 14px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  color: var(--clients-accent);
+}
+
+.kg-clients__title {
+  margin: 0 0 18px;
+
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+
+  color: var(--clients-text);
+}
+
+.kg-clients__title span {
+  color: var(--clients-accent);
+}
+
+.kg-clients__description {
+  margin: 0 auto;
+  max-width: 560px;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: var(--clients-muted);
+}
+
+/* =========================================
+   04. CAROUSEL VIEWPORT
+========================================= */
+
+.kg-clients__carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  /* Soft fade on both sides */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000000 7%,
+    #000000 93%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000000 7%,
+    #000000 93%,
+    transparent 100%
+  );
+}
+
+/* =========================================
+   05. ANIMATED TRACK
+========================================= */
+
+.kg-clients__track {
+  display: flex;
+  width: max-content;
+
+  animation: kg-clients-scroll
+    var(--clients-duration)
+    linear
+    infinite;
+
+  will-change: transform;
+}
+
+/* Pause on hover or keyboard focus */
+.kg-clients__carousel:hover .kg-clients__track,
+.kg-clients__carousel:focus-within .kg-clients__track {
+  animation-play-state: paused;
+}
+
+/* =========================================
+   06. LOGO GROUP
+========================================= */
+
+.kg-clients__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  gap: var(--clients-gap);
+
+  padding-right: var(--clients-gap);
+}
+
+/* =========================================
+   07. LOGO CARD
+========================================= */
+
+.kg-clients__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 var(--clients-card-width);
+
+  width: var(--clients-card-width);
+  height: 125px;
+
+  padding: 22px;
+
+  border: 1px solid #e9efed;
+  border-radius: 12px;
+
+  background-color: #ffffff;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.kg-clients__item:hover {
+  transform: translateY(-4px);
+
+  border-color: #c9dfda;
+
+  box-shadow: 0 10px 25px
+    rgba(12, 109, 102, 0.08);
+}
+
+/* =========================================
+   08. LOGO IMAGE
+========================================= */
+
+.kg-clients__logo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: 165px;
+  max-height: 85px;
+
+  object-fit: contain;
+
+  filter: grayscale(100%);
+  opacity: 0.75;
+
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.kg-clients__item:hover .kg-clients__logo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* =========================================
+   09. INFINITE SCROLL ANIMATION
+========================================= */
+
+@keyframes kg-clients-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================
+   10. TABLET — 601px TO 1024px
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .kg-clients {
+    --clients-gap: 22px;
+    --clients-card-width: 175px;
+    --clients-duration: 48s;
+
+    padding: 75px 0 85px;
+  }
+
+  .kg-clients__container {
+    width: min(100% - 40px, 900px);
+  }
+
+  .kg-clients__heading {
+    margin-bottom: 42px;
+  }
+
+  .kg-clients__item {
+    height: 110px;
+    padding: 18px;
+  }
+
+  .kg-clients__logo {
+    max-width: 140px;
+    max-height: 75px;
+  }
+}
+
+/* =========================================
+   11. MOBILE — UP TO 600px
+========================================= */
+
+@media (max-width: 600px) {
+  .kg-clients {
+    --clients-gap: 14px;
+    --clients-card-width: 145px;
+    --clients-duration: 42s;
+
+    padding: 60px 0 70px;
+  }
+
+  .kg-clients__container {
+    width: calc(100% - 36px);
+  }
+
+  .kg-clients__heading {
+    margin-bottom: 35px;
+  }
+
+  .kg-clients__eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .kg-clients__title {
+    font-size: 30px;
+  }
+
+  .kg-clients__description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .kg-clients__item {
+    height: 95px;
+    padding: 14px;
+    border-radius: 9px;
+  }
+
+  .kg-clients__logo {
+    max-width: 115px;
+    max-height: 65px;
+  }
+
+  .kg-clients__carousel {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000000 5%,
+      #000000 95%,
+      transparent
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000000 5%,
+      #000000 95%,
+      transparent
+    );
+  }
+}
+
+/* =========================================
+   12. ACCESSIBILITY — REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-clients__track {
+    animation: none;
+  }
+
+  .kg-clients__carousel {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .kg-clients__item,
+  .kg-clients__logo {
+    transition: none;
+  }
+}

@@ -1,0 +1,235 @@
+/* =========================================================
+   KG FOOTER — DESIGN TOKENS & BASE
+   ========================================================= */
+
+/* Main full-width footer surface */
+.kg-footer {
+  width: 100%;
+  padding: 88px 0 30px;
+  color: #fff;
+  background: radial-gradient(ellipse at 10% 0%, #104238 0%, #05251f 48%, #021510 100%);
+  border-top: 1px solid rgba(243, 197, 92, 0.22);
+}
+
+/* =========================================================
+   FOOTER TOP — HEADLINE AND CONTENT COLUMNS
+   ========================================================= */
+
+/* Responsive top-level content layout */
+.kg-footer__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 90px);
+  padding-bottom: 72px;
+}
+
+/* Intro content width */
+.kg-footer__intro { min-width: 0; max-width: 660px; }
+
+/* Small golden section label */
+.kg-footer__eyebrow {
+  color: var(--kg-gold, #f3c55c);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+/* Large premium headline */
+.kg-footer__intro h2 {
+  margin: 18px 0 30px;
+  font-size: clamp(34px, 4.2vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+/* Gold emphasized words */
+.kg-footer__intro em { color: var(--kg-gold, #f3c55c); font-style: normal; }
+
+/* Footer CTA icon and label alignment */
+.kg-footer__cta { display: inline-flex; align-items: center; justify-content: center; gap: 12px; max-width: 100%; }
+
+/* Explore and contact side-by-side */
+.kg-footer__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(22px, 3vw, 54px);
+  padding-top: 12px;
+}
+
+/* Footer column container */
+.kg-footer__column { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+
+/* Column titles */
+.kg-footer__column h3 {
+  margin: 0 0 22px;
+  color: var(--kg-gold, #f3c55c);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   EXPLORE LINKS
+   ========================================================= */
+
+/* Vertical navigation link list */
+.kg-footer__links { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; }
+
+/* Link default state */
+.kg-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #c2d3cc;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Link hover and current route */
+.kg-footer__link:hover,
+.kg-footer__link.is-active { color: var(--kg-gold, #f3c55c); transform: translateX(3px); }
+
+/* =========================================================
+   CONTACT DETAILS — MATERIAL UI ICONS
+   ========================================================= */
+
+/* Contact information list */
+.kg-footer__contact-list { display: flex; flex-direction: column; gap: 23px; margin: 0; font-style: normal; min-width: 0; }
+
+/* Icon and contact text layout */
+.kg-footer__contact-item { display: flex; align-items: flex-start; gap: 13px; min-width: 0; }
+
+/* Teal Material UI contact icons */
+.kg-footer__contact-item > svg { flex: 0 0 auto; width: 21px; height: 21px; color: #4ac7bb; margin-top: 1px; }
+
+/* Contact link and placeholder text */
+.kg-footer__contact-item a,
+.kg-footer__contact-item span { min-width: 0; color: #d5e3dd; font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; text-decoration: none; }
+
+/* Interactive contact links */
+.kg-footer__contact-item a:hover { color: var(--kg-gold, #f3c55c); }
+
+/* =========================================================
+   BOTTOM BAR — BRAND, COPYRIGHT, BACK TO TOP
+   ========================================================= */
+
+/* Bottom bar border and alignment */
+.kg-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================================
+   FOOTER BRAND — INDEPENDENT SIZE FROM HEADER
+   Scoped overrides prevent the global Brand from stretching.
+   ========================================================= */
+
+/* Footer logo lockup: allow it to shrink within the bottom row */
+.kg-footer__bottom .kg-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  gap: 10px;
+  text-decoration: none;
+}
+
+/* Footer-only symbol size */
+.kg-footer__bottom .kg-brand__symbol {
+  display: block;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  object-fit: contain;
+}
+
+/* Footer-only descriptor typography */
+.kg-footer__bottom .kg-brand__text {
+  min-width: 0;
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.09em;
+  white-space: normal;
+}
+
+/* Copyright text */
+.kg-footer__bottom p { margin: 0; color: #a6bdb3; font-size: 12px; }
+
+/* Back-to-top link */
+.kg-footer__back { display: inline-flex; align-items: center; gap: 4px; color: var(--kg-gold, #f3c55c); font-size: 12px; font-weight: 700; text-decoration: none; }
+
+/* Keyboard navigation visibility */
+.kg-footer a:focus-visible { outline: 2px solid var(--kg-gold, #f3c55c); outline-offset: 5px; }
+
+/* =========================================================
+   TABLET — 601px TO 1024px
+   ========================================================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Reduced vertical padding */
+  .kg-footer { padding-top: 66px; }
+
+  /* Stack headline and link columns */
+  .kg-footer__top { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-bottom: 58px; }
+
+  /* Give both information columns comfortable space */
+  .kg-footer__columns { max-width: 760px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+}
+
+/* =========================================================
+   MOBILE — UP TO 600px
+   ========================================================= */
+@media (max-width: 600px) {
+  /* Mobile footer spacing */
+  .kg-footer { padding: 56px 0 24px; }
+
+  /* Stack all top content */
+  .kg-footer__top { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-bottom: 46px; }
+
+  /* Mobile headline scale */
+  .kg-footer__intro h2 { font-size: clamp(32px, 8vw, 42px); }
+
+  /* CTA must never exceed viewport width */
+  .kg-footer__cta { width: fit-content; max-width: 100%; font-size: 13px; padding: 13px 18px; }
+
+  /* Stack Explore and Contact for readable text */
+  .kg-footer__columns { grid-template-columns: minmax(0, 1fr); gap: 38px; padding-top: 0; }
+
+  /* Slightly smaller mobile links */
+  .kg-footer__link,
+  .kg-footer__contact-item a,
+  .kg-footer__contact-item span { font-size: 13px; }
+
+  /* Compact brand logo on mobile */
+  .kg-footer__bottom .kg-brand__symbol {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  /* Fit brand text inside narrow mobile screens */
+  .kg-footer__bottom .kg-brand__text {
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Stack bottom items */
+  .kg-footer__bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable decorative link movement */
+  .kg-footer__link { transition: none; }
+}

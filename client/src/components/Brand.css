@@ -1,0 +1,52 @@
+/* ==========================================================
+   Brand.css — KG International Exhibition
+   Desktop: 1025px+ | Tablet: 601–1024px | Mobile: <=600px
+   ========================================================== */
+
+
+/* ==================== BRAND / LOGO ==================== */
+/* .kg-brand: Reusable horizontal brand lockup */
+.kg-brand {
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0;
+}
+
+/* .kg-brand__symbol: Original transparent teal monogram */
+.kg-brand__symbol {
+    width:78px;
+    height:78px;
+    object-fit:contain;
+}
+
+/* .kg-brand__text: White brand descriptor */
+.kg-brand__text {
+    color:#fff;
+    font-size:10px;
+    font-weight:500;
+    line-height:1.65;
+    letter-spacing:.14em;
+    white-space:nowrap;
+}
+
+
+/* ==================== TABLET ==================== */
+@media (min-width:601px) and (max-width:1024px) {
+    /* .kg-brand__symbol: responsive rule */
+    .kg-brand__symbol {
+        width:68px;
+        height:68px;
+    }
+
+}
+
+
+/* ==================== MOBILE ==================== */
+@media (max-width:600px) {
+    /* .kg-brand: responsive rule */
+    .kg-brand {
+        gap:8px;
+    }
+
+}

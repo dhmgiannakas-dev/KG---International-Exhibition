@@ -1,0 +1,355 @@
+/* ============================================================
+   KG HEADER — COMPONENT STYLES
+   Desktop: >=1025px | Tablet: 601–1024px | Mobile: <=600px
+   ============================================================ */
+
+/* ==================== 01. HEADER LAYOUT ==================== */
+
+/* Header sits above the homepage hero. */
+.kg-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 20, 17, .96), rgba(0, 20, 17, .66));
+}
+
+/* Three columns keep navigation centered and CTA at the far right. */
+.kg-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(16px, 2vw, 32px);
+  min-height: 112px;
+}
+
+/* Brand always occupies the left column. */
+.kg-header__inner > .kg-brand {
+  grid-column: 1;
+  justify-self: start;
+  min-width: 0;
+}
+
+/* Keep the shared Brand horizontal, regardless of global anchor styles. */
+.kg-header__inner > .kg-brand {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: 100%;
+  gap: 10px;
+  text-decoration: none;
+}
+
+/* Header-only KG symbol size; footer sizing stays independent. */
+.kg-header__inner > .kg-brand .kg-brand__symbol {
+  display: block;
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
+  object-fit: contain;
+}
+
+/* Header-only descriptor, always positioned to the right of the symbol. */
+.kg-header__inner > .kg-brand .kg-brand__text {
+  display: block;
+  min-width: 0;
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: .09em;
+  white-space: nowrap;
+}
+
+/* Desktop navigation children participate in the parent grid. */
+.kg-header__nav {
+  display: contents;
+}
+
+/* Keep page links together in the exact center column. */
+.kg-header__links {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.45vw, 26px);
+}
+
+/* Single CTA aligned right, with controlled responsive dimensions. */
+.kg-header__cta {
+  grid-column: 3;
+  justify-self: end;
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: 46px;
+  max-width: 100%;
+  padding: 0 clamp(12px, 1.4vw, 22px);
+  gap: clamp(6px, .8vw, 12px);
+  font-size: clamp(11px, .85vw, 13px);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* CTA arrow does not increase button width unexpectedly. */
+.kg-header__cta svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+/* Burger is not needed on desktop. */
+.kg-header__toggle {
+  display: none;
+}
+
+/* ==================== 02. NAVIGATION LINKS ==================== */
+
+/* Base link style. */
+.kg-header__link {
+  position: relative;
+  padding: 9px 0;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(11px, .88vw, 13px);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+/* Active and hover links use KG gold. */
+.kg-header__link:hover,
+.kg-header__link.is-active {
+  color: var(--kg-gold, #f3c55c);
+}
+
+/* Animated gold underline. */
+.kg-header__link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--kg-gold, #f3c55c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+/* Reveal underline for current page and hover. */
+.kg-header__link:hover::after,
+.kg-header__link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ==================== 03. TABLET: 601–1024px ==================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Switch to burger before navigation can collide with the logo/CTA. */
+  .kg-header__inner {
+    min-height: 90px;
+  }
+
+  /* Tablet brand scales down without wrapping. */
+  .kg-header__inner > .kg-brand .kg-brand__symbol {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  /* Tablet brand descriptor. */
+  .kg-header__inner > .kg-brand .kg-brand__text {
+    font-size: 8px;
+    letter-spacing: .06em;
+  }
+
+  /* Tablet dropdown spacing. */
+  .kg-header__nav {
+    padding-inline: 28px;
+  }
+}
+
+/* ==================== 04. SHARED TABLET / MOBILE MENU ==================== */
+@media (max-width: 860px) {
+  /* Brand on the left and burger on the right. */
+  .kg-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Keep logo from forcing the header wider than the viewport. */
+  .kg-header__inner > .kg-brand {
+    min-width: 0;
+    max-width: calc(100% - 60px);
+  }
+
+  /* Three-line accessible burger button. */
+  .kg-header__toggle {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: 0 0 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .05);
+    cursor: pointer;
+  }
+
+  /* Burger lines and their transitions. */
+  .kg-header__toggle span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+
+  /* Top line rotates into X. */
+  .kg-header__toggle.is-open span:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  /* Middle line disappears. */
+  .kg-header__toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Bottom line rotates into X. */
+  .kg-header__toggle.is-open span:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Dropdown contains both navigation links and the only CTA. */
+  .kg-header__nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    padding: 12px 24px 26px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    background: #092b2b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+
+  /* Display dropdown when burger is open. */
+  .kg-header__nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Stack navigation links vertically. */
+  .kg-header__links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* Comfortable tap targets for each route. */
+  .kg-header__link {
+    display: block;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    font-size: 15px;
+  }
+
+  /* Underline is unnecessary in dropdown navigation. */
+  .kg-header__link::after {
+    display: none;
+  }
+
+  /* The SAME CTA appears once below the menu links. */
+  .kg-header__cta {
+    align-self: stretch;
+    justify-self: auto;
+    width: 100%;
+    max-width: 360px;
+    min-height: 46px;
+    margin: 20px auto 0;
+    padding: 10px 16px;
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ==================== 05. MOBILE: UP TO 600px ==================== */
+@media (max-width: 600px) {
+  /* Shorter mobile header. */
+  .kg-header__inner {
+    min-height: 76px;
+  }
+
+  /* Compact symbol on narrow mobile screens. */
+  .kg-header__inner > .kg-brand .kg-brand__symbol {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  /* Mobile text stays beside the icon, never below it. */
+  .kg-header__inner > .kg-brand .kg-brand__text {
+    font-size: clamp(6px, 1.7vw, 8px);
+    letter-spacing: .025em;
+  }
+
+  /* Mobile brand gap. */
+  .kg-header__inner > .kg-brand {
+    gap: 7px;
+  }
+
+  /* Mobile dropdown horizontal padding. */
+  .kg-header__nav {
+    padding-inline: 18px;
+  }
+
+  /* Mobile CTA adapts to narrow screens without overflow. */
+  .kg-header__cta {
+    max-width: 100%;
+    min-height: 44px;
+    font-size: 12px;
+  }
+}
+
+/* ==================== 06. ACCESSIBILITY ==================== */
+
+/* Visible focus for keyboard navigation. */
+.kg-header__link:focus-visible,
+.kg-header__toggle:focus-visible,
+.kg-header__cta:focus-visible {
+  outline: 2px solid var(--kg-gold, #f3c55c);
+  outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .kg-header__link,
+  .kg-header__link::after,
+  .kg-header__toggle span,
+  .kg-header__nav {
+    transition: none;
+  }
+}

@@ -1,0 +1,854 @@
+/* ============================================================
+   EXHIBITION STANDS — Page-specific styles only.
+   Shared tokens, .kg-container, .kg-eyebrow and .kg-button
+   are intentionally inherited from App.css.
+   Desktop: >=1025px | Tablet: 601–1024px | Mobile: <=600px
+   ============================================================ */
+
+/* ===== 01. Listing hero ===== */
+
+/* Full-bleed dark green hero with subtle ambient light. */
+.kg-exhibitions__hero  {
+   position:relative;
+   overflow:hidden;
+   padding:205px 0 112px;
+   background:radial-gradient(circle at 85% 10%,rgba(13,169,165,.20),transparent 34%),linear-gradient(135deg,#031713,#0b342d);
+}
+
+/* Hero content stays above decorative elements. */
+.kg-exhibitions__hero-inner  {
+   position:relative;
+   z-index:1;
+}
+
+/* Oversized headline for the exhibition archive. */
+.kg-exhibitions__hero h1  {
+   max-width:980px;
+   margin:25px 0 22px;
+   font-size:clamp(58px,8vw,126px);
+   letter-spacing:-.075em;
+   line-height:1;
+}
+
+/* Gold emphasis used consistently with the home page. */
+.kg-exhibitions__hero h1 em,.kg-exhibitions__intro h2 em,.kg-exhibitions__cta h2 em,.kg-exhibition-detail__body h2 em  {
+   color:var(--kg-gold);
+   font-style:normal;
+}
+
+/* Supporting hero sentence. */
+.kg-exhibitions__lead  {
+   max-width:560px;
+   color:#c9dcd5;
+   font-size:clamp(16px,1.7vw,21px);
+   line-height:1.6;
+}
+
+/* Editorial metadata row. */
+.kg-exhibitions__hero-meta  {
+   display:flex;
+   flex-wrap:wrap;
+   gap:28px;
+   margin-top:54px;
+   color:#a4c9c0;
+   text-transform:uppercase;
+   letter-spacing:.15em;
+   font-size:11px;
+}
+
+/* Gold separators between metadata items. */
+.kg-exhibitions__hero-meta span+span::before  {
+   content:"/";
+   margin-right:28px;
+   color:var(--kg-gold);
+}
+
+/* ===== 02. Intro / existing site copy ===== */
+
+/* Cream-colored introduction creates contrast. */
+.kg-exhibitions__intro  {
+   padding:110px 0;
+   background:#f4f5f0;
+   color:#0c2b26;
+}
+
+/* Two-column introduction layout. */
+.kg-exhibitions__intro-grid  {
+   display:grid;
+   grid-template-columns:1.05fr 1fr;
+   gap:clamp(40px,7vw,130px);
+   align-items:start;
+}
+
+/* Section heading. */
+.kg-exhibitions__intro h2  {
+   margin:22px 0 0;
+   font-size:clamp(38px,4.2vw,68px);
+   letter-spacing:-.055em;
+   line-height:1.12;
+}
+
+/* Green accent for eyebrow on light background. */
+.kg-exhibitions__intro .kg-eyebrow  {
+   color:#0d8078;
+}
+
+/* Copy column with readable line length. */
+.kg-exhibitions__intro-copy  {
+   max-width:640px;
+   padding-top:18px;
+}
+
+/* Intro paragraphs. */
+.kg-exhibitions__intro-copy p  {
+   margin:0 0 23px;
+   color:#50615a;
+   font-size:16px;
+   line-height:1.85;
+}
+
+/* ===== 03. Exhibition listing and search ===== */
+
+/* White gallery background and generous spacing. */
+.kg-exhibitions__gallery  {
+   padding:100px 0 120px;
+   background:#fff;
+   color:#0b2923;
+}
+
+/* Heading/search control layout. */
+.kg-exhibitions__gallery-head  {
+   display:flex;
+   justify-content:space-between;
+   align-items:end;
+   gap:32px;
+}
+
+/* Gallery title. */
+.kg-exhibitions__gallery h2  {
+   margin:18px 0 12px;
+   font-size:clamp(34px,4vw,62px);
+   letter-spacing:-.055em;
+   line-height:1.08;
+}
+
+/* Gold punctuation. */
+.kg-exhibitions__gallery h2 span,.kg-exhibition-detail__heading h1 span,.kg-exhibition-detail__related h2 span  {
+   color:#c49a39;
+}
+
+/* Gallery description. */
+.kg-exhibitions__gallery-head p:not(.kg-eyebrow)  {
+   color:#687a72;
+   font-size:15px;
+}
+
+/* Search label and input wrapper. */
+.kg-exhibitions__search  {
+   display:grid;
+   gap:9px;
+   width:min(100%,290px);
+   flex-shrink:0;
+   font-size:12px;
+   font-weight:700;
+   color:#426158;
+}
+
+/* Search field styling. */
+.kg-exhibitions__search input  {
+   width:100%;
+   min-width:0;
+   padding:15px 17px;
+   border:1px solid #cddbd4;
+   border-radius:0;
+   outline:none;
+   background:#f8faf8;
+   color:#102f28;
+   font:inherit;
+   font-weight:400;
+}
+
+/* Accessible focus for search. */
+.kg-exhibitions__search input:focus-visible  {
+   border-color:#0d8078;
+   outline:2px solid #0d8078;
+   outline-offset:2px;
+}
+
+/* Result count. */
+.kg-exhibitions__count  {
+   margin:35px 0 24px;
+   color:#708077;
+   font-size:12px;
+   letter-spacing:.08em;
+   text-transform:uppercase;
+}
+
+/* Three-column stand gallery. */
+.kg-exhibitions__grid  {
+   display:grid;
+   grid-template-columns:repeat(3,minmax(0,1fr));
+   gap:40px 24px;
+}
+
+/* Empty search message. */
+.kg-exhibitions__empty  {
+   padding:45px 0;
+   color:#62766d;
+}
+
+/* ===== 04. Reusable ExhibitionCard ===== */
+
+/* Card prevents image overflow inside CSS grid. */
+.kg-exhibition-card  {
+   min-width:0;
+}
+
+/* Entire card is clickable. */
+.kg-exhibition-card__link  {
+   display:block;
+   color:inherit;
+}
+
+/* Photo frame with overlay effects. */
+.kg-exhibition-card__media  {
+   position:relative;
+   overflow:hidden;
+   aspect-ratio:1.28;
+   background:#e1e9e4;
+}
+
+/* Image covers each card without distortion. */
+.kg-exhibition-card__media img  {
+   width:100%;
+   height:100%;
+   object-fit:cover;
+   transition:transform .55s ease;
+}
+
+/* Image zoom on hover and keyboard focus. */
+.kg-exhibition-card__link:hover img,.kg-exhibition-card__link:focus-visible img  {
+   transform:scale(1.065);
+}
+
+/* Small index overlay. */
+.kg-exhibition-card__number  {
+   position:absolute;
+   top:16px;
+   left:17px;
+   color:white;
+   font-size:12px;
+   font-weight:700;
+   text-shadow:0 1px 6px #000;
+}
+
+/* Arrow overlay. */
+.kg-exhibition-card__arrow  {
+   position:absolute;
+   right:16px;
+   bottom:16px;
+   display:grid;
+   place-items:center;
+   width:42px;
+   height:42px;
+   background:var(--kg-gold);
+   color:#092820;
+   font-size:23px;
+   transition:transform .25s;
+}
+
+/* Arrow moves subtly on hover. */
+.kg-exhibition-card__link:hover .kg-exhibition-card__arrow  {
+   transform:translate(3px,-3px);
+}
+
+/* Text beneath the card photo. */
+.kg-exhibition-card__info  {
+   display:flex;
+   align-items:end;
+   justify-content:space-between;
+   gap:10px;
+   padding-top:17px;
+}
+
+/* Eyebrow above exhibitor title. */
+.kg-exhibition-card__eyebrow  {
+   font-size:10px;
+   text-transform:uppercase;
+   letter-spacing:.14em;
+   color:#789188;
+}
+
+/* Exhibitor title. */
+.kg-exhibition-card__info h3  {
+   margin:7px 0 0;
+   font-size:clamp(17px,1.6vw,23px);
+   letter-spacing:-.035em;
+}
+
+/* Small link cue. */
+.kg-exhibition-card__view  {
+   flex-shrink:0;
+   color:#9b7a2b;
+   font-size:12px;
+   font-weight:700;
+}
+
+/* Visible keyboard focus around card. */
+.kg-exhibition-card__link:focus-visible  {
+   outline:3px solid #0d8078;
+   outline-offset:4px;
+}
+
+/* ===== 05. Listing CTA ===== */
+
+/* Dark full-width call to action. */
+.kg-exhibitions__cta  {
+   padding:85px 0;
+   background:linear-gradient(115deg,#06241e,#0b4238);
+}
+
+/* CTA headline and button alignment. */
+.kg-exhibitions__cta-inner  {
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   gap:36px;
+}
+
+/* CTA headline. */
+.kg-exhibitions__cta h2  {
+   max-width:730px;
+   margin:20px 0 0;
+   font-size:clamp(34px,4.3vw,64px);
+   line-height:1.1;
+   letter-spacing:-.055em;
+}
+
+/* Prevent CTA button text from breaking. */
+.kg-exhibitions__cta .kg-button  {
+   flex-shrink:0;
+   white-space:nowrap;
+}
+
+/* ===== 06. Detail page ===== */
+
+/* Detail title area allows space for the global absolute header. */
+.kg-exhibition-detail__heading  {
+   padding:170px 0 80px;
+   background:radial-gradient(circle at 90% 10%,#14594a,#041b18 50%);
+}
+
+/* Return-to-list link. */
+.kg-exhibition-detail__back  {
+   display:inline-block;
+   margin-bottom:48px;
+   color:#d9c27d;
+   font-size:13px;
+}
+
+/* Detail headline. */
+.kg-exhibition-detail__heading h1  {
+   margin:24px 0 12px;
+   overflow-wrap:anywhere;
+   font-size:clamp(48px,7vw,100px);
+   letter-spacing:-.07em;
+   line-height:1;
+}
+
+/* Detail subtitle. */
+.kg-exhibition-detail__heading p:last-child  {
+   color:#bad1c7;
+   font-size:16px;
+}
+
+/* Image section uses light background for contrast. */
+.kg-exhibition-detail__feature  {
+   padding:50px 0;
+   background:#eef1ec;
+}
+
+/* Hero image preserves original aspect ratio. */
+.kg-exhibition-detail__feature img  {
+   display:block;
+   width:100%;
+   max-height:780px;
+   object-fit:contain;
+   margin:auto;
+}
+
+/* Project overview section. */
+.kg-exhibition-detail__body  {
+   padding:95px 0;
+   background:#fff;
+   color:#0b2923;
+}
+
+/* Overview columns. */
+.kg-exhibition-detail__body-grid  {
+   display:grid;
+   grid-template-columns:1fr 1fr;
+   gap:80px;
+}
+
+/* Overview title. */
+.kg-exhibition-detail__body h2  {
+   margin:22px 0;
+   font-size:clamp(40px,4vw,62px);
+   letter-spacing:-.055em;
+}
+
+/* Overview description. */
+.kg-exhibition-detail__body-grid>div:last-child p  {
+   margin:0 0 30px;
+   color:#52675c;
+   font-size:16px;
+   line-height:1.85;
+}
+
+/* Related project gallery. */
+.kg-exhibition-detail__related  {
+   padding:90px 0 110px;
+   background:#f4f5f0;
+   color:#0b2923;
+}
+
+/* Related heading and back link. */
+.kg-exhibition-detail__related-head  {
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   gap:20px;
+   margin-bottom:35px;
+}
+
+/* Related heading. */
+.kg-exhibition-detail__related h2  {
+   margin:0;
+   font-size:clamp(32px,3vw,48px);
+   letter-spacing:-.05em;
+}
+
+/* Related all link. */
+.kg-exhibition-detail__related-head a  {
+   color:#0d8078;
+   font-weight:700;
+   font-size:13px;
+}
+
+/* Missing ID state. */
+.kg-exhibition-detail--missing  {
+   min-height:65vh;
+   padding:180px 0 100px;
+   background:#041b18;
+}
+
+/* Missing ID headline. */
+.kg-exhibition-detail--missing h1  {
+   font-size:clamp(44px,6vw,80px);
+}
+
+/* ===== 07. Tablet: 601–1024px ===== */
+@media (min-width:601px) and (max-width:1024px)  {
+/* Smaller tablet hero spacing. */
+  .kg-exhibitions__hero  {
+     padding:170px 0 90px;
+  }
+/* Two-column tablet card gallery. */
+  .kg-exhibitions__grid  {
+     grid-template-columns:repeat(2,minmax(0,1fr));
+     gap:30px 20px;
+  }
+/* More compact introduction. */
+  .kg-exhibitions__intro  {
+     padding:75px 0;
+  }
+/* Balanced tablet intro columns. */
+  .kg-exhibitions__intro-grid  {
+     gap:35px;
+  }
+/* Compact listing spacing. */
+  .kg-exhibitions__gallery  {
+     padding:75px 0 90px;
+  }
+/* Flexible CTA to avoid overflow. */
+  .kg-exhibitions__cta-inner  {
+     flex-wrap:wrap;
+  }
+/* Smaller detail overview gap. */
+  .kg-exhibition-detail__body-grid  {
+     gap:40px;
+  }
+
+}
+
+/* ===== 08. Mobile: up to 600px ===== */
+@media (max-width:600px)  {
+/* Hero clears the mobile header. */
+  .kg-exhibitions__hero  {
+     padding:142px 0 68px;
+  }
+/* Mobile headline. */
+  .kg-exhibitions__hero h1  {
+     font-size:clamp(45px,12vw,68px);
+  }
+/* Compact mobile metadata. */
+  .kg-exhibitions__hero-meta  {
+     gap:10px;
+     margin-top:34px;
+     font-size:9px;
+  }
+/* Mobile metadata separators. */
+  .kg-exhibitions__hero-meta span+span::before  {
+     margin-right:10px;
+  }
+/* Single-column intro. */
+  .kg-exhibitions__intro-grid  {
+     grid-template-columns:1fr;
+     gap:22px;
+  }
+/* Reduced mobile intro spacing. */
+  .kg-exhibitions__intro  {
+     padding:62px 0;
+  }
+/* Smaller mobile intro text. */
+  .kg-exhibitions__intro-copy p  {
+     font-size:15px;
+  }
+/* Mobile gallery spacing. */
+  .kg-exhibitions__gallery  {
+     padding:64px 0 76px;
+  }
+/* Stack search below heading. */
+  .kg-exhibitions__gallery-head  {
+     flex-direction:column;
+     align-items:stretch;
+     gap:22px;
+  }
+/* Full-width search on mobile. */
+  .kg-exhibitions__search  {
+     width:100%;
+  }
+/* Single-column cards. */
+  .kg-exhibitions__grid  {
+     grid-template-columns:1fr;
+     gap:28px;
+  }
+/* Small card link cue. */
+  .kg-exhibition-card__view  {
+     font-size:11px;
+  }
+/* Stack CTA button beneath headline. */
+  .kg-exhibitions__cta-inner  {
+     flex-direction:column;
+     align-items:flex-start;
+  }
+/* Mobile CTA spacing. */
+  .kg-exhibitions__cta  {
+     padding:64px 0;
+  }
+/* Detail hero clears global header. */
+  .kg-exhibition-detail__heading  {
+     padding:145px 0 60px;
+  }
+/* Compact detail back link. */
+  .kg-exhibition-detail__back  {
+     margin-bottom:32px;
+  }
+/* Detail image spacing. */
+  .kg-exhibition-detail__feature  {
+     padding:22px 0;
+  }
+/* Stack overview columns. */
+  .kg-exhibition-detail__body-grid  {
+     grid-template-columns:1fr;
+     gap:10px;
+  }
+/* Detail overview spacing. */
+  .kg-exhibition-detail__body  {
+     padding:60px 0;
+  }
+/* Related gallery spacing. */
+  .kg-exhibition-detail__related  {
+     padding:60px 0;
+  }
+/* Related header wraps cleanly. */
+  .kg-exhibition-detail__related-head  {
+     flex-wrap:wrap;
+  }
+
+}
+
+/* ===== 09. Reduced motion ===== */
+@media (prefers-reduced-motion:reduce)  {
+/* Disable image zoom for motion-sensitive visitors. */
+  .kg-exhibition-card__media img  {
+     transition:none;
+  }
+
+}
+
+/* ===== 10. Search loading skeleton ===== */
+
+/* Skeleton card uses the same width as a regular exhibition card. */
+.kg-exhibitions__skeleton {
+  min-width: 0;
+}
+
+/* Image placeholder keeps the gallery layout stable while searching. */
+.kg-exhibitions__skeleton-image.MuiSkeleton-root {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.28;
+  margin-bottom: 14px;
+  background-color: #e2ebe6;
+}
+
+/* ===== 11. Detail feature: image and metadata ===== */
+
+/* Two-column image and metadata composition. */
+.kg-exhibition-detail__feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+/* Image wrapper prevents large photos from overflowing their grid column. */
+.kg-exhibition-detail__image-wrap {
+  min-width: 0;
+}
+
+/* Detail information card uses the KG dark-green palette. */
+.kg-exhibition-detail__facts {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 42px);
+  background: #092c26;
+  color: #ffffff;
+}
+
+/* Detail information heading. */
+.kg-exhibition-detail__facts h2 {
+  margin: 14px 0 28px;
+  font-size: clamp(26px, 2.5vw, 38px);
+  letter-spacing: -0.045em;
+}
+
+/* Gold accent on the information heading. */
+.kg-exhibition-detail__facts h2 span {
+  color: var(--kg-gold, #d6b56d);
+}
+
+/* Remove default description-list spacing. */
+.kg-exhibition-detail__facts-list {
+  margin: 0;
+}
+
+/* Each project field has a subtle separator. */
+.kg-exhibition-detail__facts-list > div {
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Metadata labels. */
+.kg-exhibition-detail__facts-list dt {
+  margin-bottom: 7px;
+  color: #a8c5b8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Metadata values. */
+.kg-exhibition-detail__facts-list dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ===== 12. Tablet: 601–1024px ===== */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Give the image and metadata balanced space on tablet. */
+  .kg-exhibition-detail__feature-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+    gap: 24px;
+  }
+
+  /* Keep metadata padding compact on tablet. */
+  .kg-exhibition-detail__facts {
+    padding: 24px;
+  }
+}
+
+/* ===== 13. Mobile: up to 600px ===== */
+@media (max-width: 600px) {
+  /* Stack the project metadata below the main image. */
+  .kg-exhibition-detail__feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  /* Metadata card fills the available mobile width. */
+  .kg-exhibition-detail__facts {
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   DETAIL PAGE — DYNAMIC PROJECT GALLERY
+   Images are managed in exhibitionStands.js.
+   ========================================================= */
+
+/* Full-width gallery sits below both the image and metadata columns. */
+.kg-exhibition-gallery__below {
+  margin-top: clamp(24px, 4vw, 52px);
+}
+
+/* Main image fills its responsive column. */
+.kg-exhibition-gallery__main img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Gallery title and image counter. */
+.kg-exhibition-gallery__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+/* Gallery section heading. */
+.kg-exhibition-gallery__heading h3 {
+  margin: 0;
+  color: #092c26;
+  font-size: clamp(23px, 2.6vw, 34px);
+}
+
+/* Gallery image count. */
+.kg-exhibition-gallery__heading span {
+  color: #54766d;
+  font-size: 13px;
+}
+
+/* Responsive image collection with any number of photos. */
+.kg-exhibition-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Individual interactive thumbnail. */
+.kg-exhibition-gallery__thumb {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background: #e2ebe6;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+/* Image inside a gallery thumbnail. */
+.kg-exhibition-gallery__thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Active and hovered photo state. */
+.kg-exhibition-gallery__thumb:hover,
+.kg-exhibition-gallery__thumb.is-active {
+  border-color: #d6b56d;
+}
+
+/* Keyboard navigation focus state. */
+.kg-exhibition-gallery__thumb:focus-visible {
+  outline: 3px solid #0da9a5;
+  outline-offset: 3px;
+}
+
+/* Fallback when no valid gallery photos are available. */
+.kg-exhibition-gallery__empty {
+  display: grid;
+  min-height: 250px;
+  place-items: center;
+  padding: 24px;
+  color: #54766d;
+  background: #e2ebe6;
+  text-align: center;
+}
+
+/* TABLET — 601px to 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Use three gallery columns on tablet. */
+  .kg-exhibition-gallery__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* MOBILE — up to 600px */
+@media (max-width: 600px) {
+  /* Two thumbnails per row on mobile. */
+  .kg-exhibition-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  /* Reduce gallery heading spacing on mobile. */
+  .kg-exhibition-gallery__heading {
+    margin-bottom: 14px;
+  }
+}
+
+/* ===== 12. Final gallery alignment and accessibility ===== */
+/* Ensure the main image and details occupy their own columns. */
+.kg-exhibition-detail__feature-grid > .kg-exhibition-gallery {
+  min-width: 0;
+}
+
+/* Place the thumbnails below BOTH feature columns. */
+.kg-exhibition-gallery__below {
+  width: 100%;
+  margin-top: clamp(28px, 4vw, 52px);
+}
+
+/* Maintain a consistent image frame without distortion. */
+.kg-exhibition-gallery__main {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #dce7df;
+}
+
+.kg-exhibition-gallery__main img {
+  width: 100%;
+  max-height: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Stable clickable thumbnail dimensions. */
+.kg-exhibition-gallery__thumb {
+  aspect-ratio: 4 / 3;
+}
+
+.kg-exhibition-gallery__thumb img {
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-exhibition-gallery__thumb {
+    transition: none;
+  }
+}
