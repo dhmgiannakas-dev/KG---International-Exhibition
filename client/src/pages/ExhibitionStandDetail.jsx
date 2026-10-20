@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
 import ExhibitionGallery from "./../components/ExhibitionGallery";
 import ExhibitionCard from "../components/ExhibitionCard";
 
