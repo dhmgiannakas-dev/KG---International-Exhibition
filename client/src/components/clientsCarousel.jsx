@@ -1,5 +1,5 @@
-import "./ClientsCarousel.css";
-import { clients } from "./../data/carouselData";
+import "./clientsCarousel.css";
+import { clients } from "../data/carouselData";
 
 /* =========================================
    REUSABLE CLIENT LOGO

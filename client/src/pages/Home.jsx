@@ -2,7 +2,7 @@ import "./Home.css";
 import heroImage from "../assets/hero-kg.png";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import { projects, stats, services } from "./../data/homeData";
-import ClientsCarousel from "../components/ClientsCarousel";
+import ClientsCarousel from "../components/clientsCarousel";
 import AnimatedCounter from "../components/AnimatedCounter";
 
 
