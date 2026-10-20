@@ -11,7 +11,7 @@ import {
   getStandDetail,
 } from "../data/exhibitionStands";
 
-import "./ExhibitionStands.css";
+import "./exhibitionStands.css";
 
 /**
  * Shared detail page for every exhibition stand.
